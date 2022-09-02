@@ -4,7 +4,7 @@
   "description": "mytheresa",
   "main": "index.js",
   "scripts": {
-    "serve": "webpack serve --mode development",
+    "dev": "webpack serve --mode development --open --hot",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -20,7 +20,9 @@
   "license": "ISC",
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-image-webp": "^0.8.0",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",

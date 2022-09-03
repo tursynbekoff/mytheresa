@@ -1,5 +1,6 @@
 import { Component } from "react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 class Menu extends Component {
   state = {
@@ -18,12 +19,14 @@ class Menu extends Component {
 
   render() {
     const { active } = this.state;
-    const { data } = this.props;
-    // console.log(data[active].image);
+    const { data } = this.props;    
     
     return (
       <div className="carousel">
-        <img data-testid="hero" src={data[active].image} alt="product" />
+        <div className="card">
+          <img data-testid="hero" src={data[active].image} alt="product" />
+            <Link className="link" to={`/${data[active].link}`} >{data[active].id}</Link>
+        </div>
         <div className="carousel-smaller">
         
           {Object.keys(data).map((item, index) => (
@@ -33,7 +36,7 @@ class Menu extends Component {
               key={data[item].image}
               src={data[item].image}
               className={index === active ? "active" : ""}
-              alt="animal thumbnail"
+              alt={data[item].link}
               onClick={this.handleIndexClick}
               data-index={index}
             />

@@ -1,0 +1,41 @@
+.laptops {
+  margin-top: 50px;
+  font-family:  sans-serif;
+  .list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 8px;
+  }
+  
+  .el {
+    width: 300px;
+    display: flex;
+    padding: 10px;
+    justify-content: start;
+    align-items: center;
+    gap: 40px;
+    // background-color: ;
+  }
+  
+  img {
+    height: 100px;
+    max-width: 100px;
+    object-fit: contain;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+  
+  .link {
+    text-align: center  ;
+  }
+
+  .price {
+    color: tomato;
+  }
+  
+    
+}

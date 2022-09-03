@@ -1,0 +1,22 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding: 8px 0;
+
+  background-color: white;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  a {
+    font-family: "Merriweather";
+    font-size: 2rem;
+    font-weight: 600;
+    text-decoration: none;
+    // color: #;
+  }
+
+}

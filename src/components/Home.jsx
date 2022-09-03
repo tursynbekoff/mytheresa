@@ -1,6 +1,5 @@
 import { Component } from "react";
 import React from "react";
-import { useParams } from "react-router-dom";
 import Menu from "./Menu.jsx";
 
 class Home extends Component {
@@ -15,18 +14,14 @@ class Home extends Component {
   }
 
   render() {
-
     const data = this.state.categories;
-
-    console.log(data);
-
 
     if (this.state.loading) {
       return <h2>loading … </h2>;
     }
 
     return (
-      <div className="details">
+      <div className="home">
         <Menu  data={ data }/>
       </div>
     );

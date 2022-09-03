@@ -15,6 +15,7 @@ module.exports = {
     port: 3030, 
   },
   module: {
+    // cache: false,
     rules: [
       {
         test: /\.(js|jsx)$/, 

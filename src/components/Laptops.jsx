@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Outlet } from "react-router-dom";
 import React from "react";
 
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
 const Laptops = () => {
   const [laptops, setLaptops] = useState([]);
+
+
 
   useEffect(() => {
     requestLaptops();
@@ -23,12 +25,13 @@ const Laptops = () => {
   const data = laptops;
 
   return (
+    <>
     <div className="laptops">
 
       <div className="laptops__list list">
       
         {Object.keys(data).map((item, index) => (
-          <Link to={`/laptop/${data[item].id}`} className="list__el el">
+          <Link to={`/laptops/${data[item].id}`} className="list__el el">
             <img
               data-testid={`thumbnail${index}`}
               key={data[item].image[0]}
@@ -54,9 +57,11 @@ const Laptops = () => {
             </article>
           </Link>
         ))}
-      </div>
 
+      </div>
     </div>
+    <Outlet/>
+    </>
   );
   
 }

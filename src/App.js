@@ -14,14 +14,16 @@ const App = () => {
           <Link to="/">ElectroScope</Link>
         </nav>
         <Routes>
-          <Route path="/laptops" element={<Laptops />}  />
+          <Route path="/laptops" exact element={<Laptops />}  >
+          </Route>
+          <Route path="/laptops/:laptopId" element={<Laptop />}  />
           <Route path="/phones" element={<Phones />}  />
-          <Route path="/laptop/:id" element={<Laptop />}  />
           <Route path="/" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </StrictMode>
   )
 };
+
 
 export default App;

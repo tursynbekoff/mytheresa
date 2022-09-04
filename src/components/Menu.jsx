@@ -25,7 +25,9 @@ class Menu extends Component {
       <div className="carousel">
         <div className="card">
           <img data-testid="hero" src={data[active].image} alt="product" />
-            <Link className="link" to={`/${data[active].link}`} >{data[active].id}</Link>
+            <Link className="link" to={`/${data[active].link}`} >
+              {data[active].id} {" "} <i className="arrow right"></i>
+            </Link>
         </div>
         <div className="carousel-smaller">
         

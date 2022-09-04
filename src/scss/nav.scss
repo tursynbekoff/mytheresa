@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Roboto';
+  // font-style: black;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Roboto'), url('../fonts/roboto/Roboto-Regular.ttf') format('.truetype');
+}
+
 .nav {
   display: flex;
   flex-direction: column;
@@ -12,11 +20,10 @@
   width: 100%;
 
   a {
-    font-family: "Merriweather";
+    font-family: 'Roboto';
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 400;
     text-decoration: none;
-    // color: #;
+    color: #333;
   }
-
 }

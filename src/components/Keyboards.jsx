@@ -29,7 +29,7 @@ const Keyboards = () => {
       <div className="keyboards__list list">
       
         {Object.keys(data).map((item, index) => (
-          <Link to={`/keyboards/${data[item].id}`} key={`index-${index}`} className="list__el el">
+          <Link to={`/keyboard?id=${index}`} key={`index-${index}`} className="list__el el">
             <img
               data-testid={`thumbnail${index}`}
               key={data[item].image[0]}

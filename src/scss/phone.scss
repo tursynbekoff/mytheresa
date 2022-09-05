@@ -1,0 +1,84 @@
+.phone {
+    margin-top: 100px;
+    font-family:  sans-serif;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  
+    // article {
+    //   display: flex;
+    //   flex-direction: column;
+    //   justify-content: center;
+    //   align-items: center;
+    //   margin-top: 8px;
+    // }
+  
+    .carousel > img {
+      max-width: 75%;
+      max-height: 400px;
+    }
+  
+    .carousel-smaller > img {
+      min-width: 80px;
+      // max-width: 100px;
+      min-height: 80px;
+      // max-height: 100px;
+      border-radius: 50%;
+      display: inline-block;
+      margin: 5px;
+    
+      cursor: pointer;
+      border: 2px solid #333;
+      object-fit: contain;
+    }
+  
+    .carousel-smaller {
+      display: flex;
+      width: 300px;
+      height: 100px;
+      img {
+        height: 80px;
+        width: 80px;
+        object-fit: cover;
+      }
+      
+    }
+  
+    .el {
+      min-width: 300px;
+      max-width: 400px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      justify-content: start;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid gray;
+      text-decoration: none;
+      // background-color: ;
+    }
+    
+    img {
+      // height: 120px;
+      // max-width: 100px;
+      // object-fit: contain;
+    }
+  
+    .title {
+      font-size: 14px;
+    }
+    
+    .link {
+      text-align: center  ;
+      font-family: 'Montserrat';
+      font-weight: 500;
+    }
+  
+    .price {
+      color: tomato;
+    }
+      
+  }
+    

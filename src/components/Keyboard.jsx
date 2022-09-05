@@ -5,24 +5,24 @@ import Carousel from "./Carousel.jsx";
 
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
-const Laptop = () => {
-  const [laptop, setLaptop] = useState([]);
+const Keyboard = () => {
+  const [keyboard, setKeyboard] = useState([]);
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
-    requestLaptop();
+    requestKeyboard();
   }, [searchParams]);
 
-  async function requestLaptop() {
+  async function requestKeyboard() {
     const res = await fetch(
       `https://tursynbekoff.github.io/proj_api/src/db.json`
     );
     const json = (await res.json());
 
-    setLaptop(json.laptops);
+    setKeyboard(json.keyboards);
   }
 
-  let data = laptop;
+  let data = keyboard;
 
   let params = searchParams.get("id");
   const element = data[params];
@@ -30,17 +30,17 @@ const Laptop = () => {
   return (
     
       typeof element === 'object' && (
-        <div className="laptop">
+        <div className="keyboard">
           <Carousel images={element.image}/>
           <article className="el">
             <h2 className="el__title title">
               {element.name}
             </h2>
             <p className="el__text text">
-              {element.type},
-              {element.cpuModel},
-              {element.ramSize},
-              {element.memorySize}
+              {element.keyType},{" "}
+              {element.keyTypeColor},{" "}
+              {element.connection},{" "}
+              {element.weight}
             </p>
     
             <p className="el__price price">
@@ -61,7 +61,7 @@ const WrappedDetails = () => {
 
   return (
     <ErrorBoundary>
-      <Laptop />
+      <Keyboard />
     </ErrorBoundary>
   );
 };

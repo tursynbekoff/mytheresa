@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import React from "react";
 
 import ErrorBoundary from "./ErrorBoundary.jsx";
@@ -29,8 +29,7 @@ const Laptops = () => {
       <div className="laptops__list list">
       
         {Object.keys(data).map((item, index) => (
-          // <Link to={`/laptops/${data[item].id}`} key={`index-${index}`} className="list__el el">
-            <Link to={`/laptop?id=${index}`} key={`index-${index}`} className="list__el el">
+            <Link to={`/laptop?id=${item}`} key={`index-${index}`} className="list__el el">
             <img
               data-testid={`thumbnail${index}`}
               key={data[item].image[0]}
@@ -59,7 +58,6 @@ const Laptops = () => {
 
       </div>
     </div>
-    <Outlet/>
     </>
   );
   

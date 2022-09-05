@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import React from "react";
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
@@ -18,7 +18,6 @@ class Phones extends Component {
 
   render() {
     const data = this.state.phones;
-    console.log(data)
 
     if (this.state.loading) {
       return <h2>loading … </h2>;
@@ -31,7 +30,7 @@ class Phones extends Component {
         <div className="phones__list list">
         
           {Object.keys(data).map((item, index) => (
-            <div className="list__el el">
+            <Link to={`/phone?id=${item}`} key={`index-${index}`} className="list__el el">
               <img
                 data-testid={`thumbnail${index}`}
                 key={data[item].image[0]}
@@ -54,7 +53,7 @@ class Phones extends Component {
                   add to basket
                 </button>
               </article>
-            </div>
+            </Link>
           ))}
         </div>
 

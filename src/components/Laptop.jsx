@@ -4,25 +4,70 @@ import { useParams } from "react-router-dom";
 
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
-const Laptop = (props) => {
-
+const Laptop = () => {
   const [laptop, setLaptop] = useState([]);
 
-   async function requestLaptops() {
+  useEffect(() => {
+    requestLaptop();
+  }, []);
+
+  async function requestLaptop() {
     const res = await fetch(
       `https://tursynbekoff.github.io/proj_api/src/db.json`
     );
-    const json = (await res.json().laptops);
+    const json = (await res.json());
 
     setLaptop(json.laptops);
   }
 
-  const data = laptop;
+  let data = laptop;
 
-  let { laptopId } = useParams();
+  let params = new URLSearchParams(document.location.search);
+  let id = params.get("id"); // is the string "Jonathan"
+  const data1 = laptop[id];
+  console.log( data1)
 
-  console.log("at :", laptopId)
-  console.log("windows :", window.location)
+  return (
+
+    <>
+    <div>
+        {'/n'}
+    </div>
+    <div>
+        {'/n'}
+    </div>
+    <div>
+        {'/n'}
+    </div>
+    <div>
+        {'/n'}
+    </div>
+    <div>
+        {'/n'}
+    </div>
+    <div>
+        {'/n'}
+    </div>
+    <div>
+        {'/n'}
+    </div>
+    <div>
+        {'/n'}
+    </div>
+    <div>
+        {'/n'}
+    </div>
+    <div>
+        {'/n'}
+    </div>
+      <div>
+        here is your laptop 
+        {/* { (laptop[id]) } */}
+      </div>
+    </>
+  )
+
+
 
   // return (
   //   <div className="laptop">
@@ -55,11 +100,11 @@ const Laptop = (props) => {
 }
 
 const WrappedDetails = () => {
-  const params = useParams();
+  // const params = useParams();
 
   return (
     <ErrorBoundary>
-      <Laptop params={params} />
+      <Laptop />
     </ErrorBoundary>
   );
 };

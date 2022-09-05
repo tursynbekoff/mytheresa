@@ -1,0 +1,48 @@
+.keyboards {
+    margin-top: 50px;
+    font-family:  sans-serif;
+    .list {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 8px;
+    }
+    
+    .el {
+      min-width: 300px;
+      max-width: 400px;
+    //   height: 400px;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      justify-content: start;
+      align-items: center;
+      gap: 20px;
+      border-bottom: 1px solid gray;
+      text-decoration: none;
+      // background-color: ;
+    }
+    
+    img {
+    //   height: 120px;
+      max-width: 300px;
+      object-fit: contain;
+    }
+  
+    .title {
+      font-size: 14px;
+    }
+    
+    .link {
+      text-align: center  ;
+      font-family: 'Montserrat';
+      font-weight: 500;
+    }
+  
+    .price {
+      color: tomato;
+    }
+      
+  }
+  

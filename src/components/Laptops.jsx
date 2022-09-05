@@ -7,8 +7,6 @@ import ErrorBoundary from "./ErrorBoundary.jsx";
 const Laptops = () => {
   const [laptops, setLaptops] = useState([]);
 
-
-
   useEffect(() => {
     requestLaptops();
   }, []);
@@ -31,7 +29,8 @@ const Laptops = () => {
       <div className="laptops__list list">
       
         {Object.keys(data).map((item, index) => (
-          <Link to={`/laptops/${data[item].id}`} className="list__el el">
+          // <Link to={`/laptops/${data[item].id}`} key={`index-${index}`} className="list__el el">
+            <Link to={`/laptop?id=${index}`} key={`index-${index}`} className="list__el el">
             <img
               data-testid={`thumbnail${index}`}
               key={data[item].image[0]}
@@ -42,9 +41,9 @@ const Laptops = () => {
                 {data[item].name}
               </h2>
               <p className="el__text text">
-                {data[item].type},
-                {data[item].cpuModel},
-                {data[item].ramSize},
+                {data[item].type},{` `}
+                {data[item].cpuModel},{` `}
+                {data[item].ramSize},{` `}
                 {data[item].memorySize}
               </p>
 

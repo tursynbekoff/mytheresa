@@ -6,12 +6,26 @@ import Carousel from "./Carousel.jsx";
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
 const Laptop = () => {
+  const [cart, setCart] = useState([]);
   const [laptop, setLaptop] = useState([]);
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
     requestLaptop();
+    localCart = JSON.parse(localCart);
+    if (localCart) {
+      setCart(localCart)
+    };
   }, [searchParams]);
+
+  let localCart = localStorage.getItem("cart");
+
+  const addItem = (item) => {
+    let cartCopy = [...cart, item]
+    setCart(cartCopy);
+    let stringCart = JSON.stringify(cartCopy);
+    localStorage.setItem("cart", stringCart);
+  }
 
   async function requestLaptop() {
     const res = await fetch(
@@ -46,7 +60,11 @@ const Laptop = () => {
             <p className="el__price price">
               {element.price} Euro
             </p>
-            <button>
+            <button onClick={(evt) => {
+              evt.preventDefault()
+              addItem(element.id)
+              forceUpdate()
+            }}>
               add to basket
             </button>
           </article>

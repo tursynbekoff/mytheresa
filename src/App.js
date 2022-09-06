@@ -1,6 +1,7 @@
 import React from "react";
 import { StrictMode } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Navbar from "./components/Nav.jsx";
 import Home from "./components/Home.jsx";
 import Laptops from "./components/Laptops.jsx";
 import Laptop from "./components/Laptop.jsx";
@@ -13,10 +14,8 @@ const App = () => {
   return (
     <StrictMode>
       <BrowserRouter>
-        <nav className="nav">
-          <Link to="/" className="brand">
-            <span className="brand__one">Lectro</span><span className="brand__two">Scope</span>
-          </Link>
+        <nav>
+          <Navbar />
         </nav>
         <Routes>
           <Route path="/laptops" exact element={<Laptops />}/>

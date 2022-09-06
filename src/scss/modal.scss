@@ -13,7 +13,7 @@
   button, a,
   .details button {
     background-color: #ad343e;
-    padding: 5px 25px;
+    padding: 5px 35px;
     color: white;
     font-size: 18px;
     border: #333 1px solid;
@@ -40,6 +40,24 @@
     padding: 5px;
     text-align: center;
     border-radius: 30px;
+  }
+
+  .remove {
+    margin-top: 5px;
+    background: transparent;
+    border: 0;
+    color: #333;
+    text-decoration: underline;
+  }
+
+  .clear {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 5px;
+    background: transparent;
+    border: 0;
+    color: #222;
+    text-decoration: underline;
   }
   
   .buttons button {

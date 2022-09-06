@@ -65,7 +65,7 @@ const Cart = () => {
     (amountOfItems(item.id) > 0) && (
       <div>
         <span>({amountOfItems(item.id)} x {item.price} Euro ) {`${item.name}`}</span>
-      <button type="submit" onClick={() =>{ removeFromItem(item)}}>Remove</button>
+        <button className="remove" type="submit" onClick={() =>{ removeFromItem(item)}}>Remove item</button>
       </div>
     )
       
@@ -95,9 +95,9 @@ const Cart = () => {
           <div>{listItemsInCart() }</div>
           <div>Total: {crtTotal()} Euro</div>
           <div>
-            <button onClick={() => {
+            <button className="clear" onClick={() => {
               clearAll()
-            }}>Clear</button>
+            }}>Clear all</button>
           </div>
           <button onClick={toggle}>close</button>
         </Modal>

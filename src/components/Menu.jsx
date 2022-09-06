@@ -36,11 +36,11 @@ class Menu extends Component {
           {Object.keys(data).map((item, index) => (
             // eslint-disable-next-line
             <picture>
-              <source srcset={data[item].image.replace(".jpg", ".webp")} type="image/webp"></source>
+              <source srcset={data[item].image.replace("upload", "upload/w_200").replace(".jpg", ".webp")} type="image/webp"></source>
               <img
                 data-testid={`thumbnail${index}`}
                 key={data[item].image}
-                src={data[item].image}
+                src={data[item].image.replace("upload", "upload/w_200")}
                 className={`thumbnail ${index === active ? "active" : ""}`}
                 alt={data[item].link}
                 onClick={this.handleIndexClick}

@@ -1,14 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
 const Laptops = () => {
   const [cart, setCart] = useState([]);
-  const [allProd, setProd] = useState([]);
   const [laptops, setLaptop]= useState([]);
-
-  const [, updateState] = useState();
-  const forceUpdate = useCallback(() => updateState({}), []);
 
   useEffect(() => {
     requestProds();
@@ -33,7 +29,6 @@ const Laptops = () => {
     );
     const json = (await res.json());
     setLaptop(json.laptops);
-    setProd(json.allProd);
   }
 
   const data = laptops;
@@ -66,7 +61,6 @@ const Laptops = () => {
               <button onClick={(evt) => {
                 evt.preventDefault()
                 addItem(data[item].id)
-                forceUpdate()
               }}>
                 add to basket
               </button>

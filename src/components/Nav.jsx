@@ -1,113 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Modal from "./modal.jsx";
-// import Cart from ""
+import Cart from "./Cart.jsx";
 
 const Nav = () => {
 
-  const [modal, setModal] = useState(false);
-  const [cart, setCart] = useState([]);
-  const [allProd, setProd] = useState([]);
-
-  useEffect(() => {
-    requestProds();
-    localCart = JSON.parse(localCart);
-    if (localCart) {
-      setCart(localCart)
-    };
-  }, [modal]);
-
-  let localCart = localStorage.getItem("cart");
-
-  const removeFromItem = (item) => {
-    let cartCopy = [...cart];
-    let newVal = () => {
-      const indexOfItemToRemove = cartCopy.findIndex((cartItem) => {
-        console.log(cartItem, item.id);
-        return cartItem === item.id
-      });
-  
-      if (indexOfItemToRemove === -1) {
-        return cartCopy;
-      }
-
-      return [
-        ...cartCopy.slice(0, indexOfItemToRemove),
-        ...cartCopy.slice(indexOfItemToRemove + 1),
-      ];
-    }
-
-    cartCopy = newVal();
-    setCart(cartCopy);
-    let stringCart = JSON.stringify(cartCopy);
-    localStorage.setItem("cart", stringCart);
-  }
-
-  const clearAll = () => {
-    let cartCopy = [];
-    setCart(cartCopy);
-    let stringCart = JSON.stringify(cartCopy);
-    localStorage.setItem("cart", stringCart);
-  }
-
-  const amountOfItems = (id) => cart.filter((item) => {
-    return item === id 
-  }).length;
-
-  const crtTotal =  () => {
-    let totalVal = 0;
-    allProd.map((item) => (
-        (amountOfItems(item.id) > 0) && (
-          totalVal = totalVal + (amountOfItems(item.id) * item.price) 
-        )
-    ))
-    return totalVal.toFixed(2);;
-  };
-
-  const listItemsInCart = () => allProd.map((item) => (
-      
-        (amountOfItems(item.id) > 0) && (
-          <div>
-            <span>({amountOfItems(item.id)} x ${item.price}) {`${item.name}`}</span>
-          <button type="submit" onClick={() =>{ removeFromItem(item)}}>Remove</button>
-          </div>
-        )
-      
-  ));
-
-  async function requestProds() {
-    const res = await fetch(
-      `https://tursynbekoff.github.io/proj_api/src/db.json`
-    );
-    const json = (await res.json());
-    setProd(json.allProd);
-  }
-
-  function toggle() {
-    setModal(!modal);
-  }
-
   return (
     <header className="nav">
-      <Link to="/" className="brand">
-        <span className="brand__one">Lectro</span><span className="brand__two">Scope</span>
-      </Link>
-      <button onClick={() =>{toggle()}}>
-        Cart
-      </button>
-      {modal ? (
-        <Modal>
-          <div>CART</div>
-          <div>{listItemsInCart() }</div>
-          <div>Total: ${crtTotal()}</div>
-          <div>
-            <button onClick={() => {
-              clearAll()
-            }}>Clear</button>
-          </div>
-          <button onClick={toggle}>close</button>
-        </Modal>
-      ) : null}
+      <nav className="nav__wrapper">
+        <Link to="/" className="nav__brand brand">
+          <span className="brand__one">Lectro</span><span className="brand__two">Scope</span>
+        </Link>
+        <Cart />
+      </nav>
     </header>
   )
 }

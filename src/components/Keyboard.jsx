@@ -8,10 +8,24 @@ import ErrorBoundary from "./ErrorBoundary.jsx";
 const Keyboard = () => {
   const [keyboard, setKeyboard] = useState([]);
   const [searchParams] = useSearchParams();
+  const [cart, setCart] = useState([]);
 
   useEffect(() => {
     requestKeyboard();
-  }, [searchParams]);
+    localCart = JSON.parse(localCart);
+    if (localCart) {
+      setCart(localCart)
+    };
+  }, []);
+
+  let localCart = localStorage.getItem("cart");
+
+  const addItem = (item) => {
+    let cartCopy = [...cart, item]
+    setCart(cartCopy);
+    let stringCart = JSON.stringify(cartCopy);
+    localStorage.setItem("cart", stringCart);
+  }
 
   async function requestKeyboard() {
     const res = await fetch(
@@ -28,31 +42,33 @@ const Keyboard = () => {
   const element = data[params];
 
   return (
-    
-      typeof element === 'object' && (
-        <div className="keyboard">
-          <Carousel images={element.image}/>
-          <article className="el">
-            <h2 className="el__title title">
-              {element.name}
-            </h2>
-            <p className="el__text text">
-              {element.keyType},{" "}
-              {element.keyTypeColor},{" "}
-              {element.connection},{" "}
-              {element.weight}
-            </p>
-    
-            <p className="el__price price">
-              {element.price} Euro
-            </p>
-            <button>
-              add to basket
-            </button>
-          </article>
-    
-        </div>
-      )
+    typeof element === 'object' && (
+      <div className="keyboard">
+        <Carousel images={element.image}/>
+        <article className="el">
+          <h2 className="el__title title">
+            {element.name}
+          </h2>
+          <p className="el__text text">
+            {element.keyType},{" "}
+            {element.keyTypeColor},{" "}
+            {element.connection},{" "}
+            {element.weight}
+          </p>
+  
+          <p className="el__price price">
+            {element.price} Euro
+          </p>
+          <button onClick={(evt) => {
+              evt.preventDefault()
+              addItem(element.id)
+          }}>
+            add to basket
+          </button>
+        </article>
+  
+      </div>
+    )
   );
 }
 

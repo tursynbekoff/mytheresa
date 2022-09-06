@@ -16,7 +16,7 @@ const Laptop = () => {
     if (localCart) {
       setCart(localCart)
     };
-  }, [searchParams]);
+  }, []);
 
   let localCart = localStorage.getItem("cart");
 

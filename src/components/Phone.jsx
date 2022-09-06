@@ -7,11 +7,16 @@ import ErrorBoundary from "./ErrorBoundary.jsx";
 
 const Phone = () => {
   const [phone, setPhone] = useState([]);
+  const [cart, setCart] = useState([]);
   const [searchParams] = useSearchParams();
 
   useEffect(() => {
     requestPhone();
-  }, [searchParams]);
+    localCart = JSON.parse(localCart);
+    if (localCart) {
+      setCart(localCart)
+    };
+  }, []);
 
   async function requestPhone() {
     const res = await fetch(
@@ -20,6 +25,15 @@ const Phone = () => {
     const json = (await res.json());
 
     setPhone(json.phones);
+  }
+
+  let localCart = localStorage.getItem("cart");
+
+  const addItem = (item) => {
+    let cartCopy = [...cart, item]
+    setCart(cartCopy);
+    let stringCart = JSON.stringify(cartCopy);
+    localStorage.setItem("cart", stringCart);
   }
 
   let data = phone;
@@ -47,7 +61,10 @@ const Phone = () => {
             <p className="el__price price">
               {element.price} Euro
             </p>
-            <button>
+            <button onClick={(evt) => {
+              evt.preventDefault()
+              addItem(element.id)
+            }}>
               add to basket
             </button>
           </article>

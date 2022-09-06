@@ -1,15 +1,29 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, Outlet } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import React from "react";
 
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
 const Keyboards = () => {
+  const [cart, setCart] = useState([]);
   const [keyboards, setKeyboards] = useState([]);
 
   useEffect(() => {
     requestkeyboards();
+    localCart = JSON.parse(localCart);
+    if (localCart) {
+      setCart(localCart)
+    };
   }, []);
+
+  let localCart = localStorage.getItem("cart");
+
+  const addItem = (item) => {
+    let cartCopy = [...cart, item]
+    setCart(cartCopy);
+    let stringCart = JSON.stringify(cartCopy);
+    localStorage.setItem("cart", stringCart);
+  }
 
   async function requestkeyboards() {
     const res = await fetch(
@@ -23,9 +37,7 @@ const Keyboards = () => {
   const data = keyboards;
 
   return (
-    <>
     <div className="keyboards">
-
       <div className="keyboards__list list">
       
         {Object.keys(data).map((item, index) => (
@@ -48,7 +60,10 @@ const Keyboards = () => {
               <p className="el__price price">
                 {data[item].price} Euro
               </p>
-              <button>
+              <button onClick={(evt) => {
+                evt.preventDefault()
+                addItem(data[item].id)
+              }}>
                 add to basket
               </button>
             </article>
@@ -57,8 +72,6 @@ const Keyboards = () => {
 
       </div>
     </div>
-    <Outlet/>
-    </>
   );
   
 }

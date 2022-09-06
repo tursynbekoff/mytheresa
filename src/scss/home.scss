@@ -1,15 +1,16 @@
-
+.home {
+  margin-top: 70px;
+}
 .card {
   height: 400px;
   width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  gap: 40px;
+  justify-content: space-between;
+  padding-bottom: 40px;
 
-
-  img {
-    height: 200px;
+  .hero {
+    max-height: 300px;
     max-width: 300px;
     object-fit: contain;
   }
@@ -41,30 +42,25 @@
   justify-content: space-around;
   align-items: center;
   margin-top: 8px;
-}
 
-.carousel > img {
-  max-width: 45%;
-  max-height: 400px;
 }
 
 .carousel-smaller {
   display: flex;
+  .thumbnail {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
+
+    cursor: pointer;
+    border: 2px solid #333;
+    object-fit: scale-down;
+  }
 }
 
-.carousel-smaller > img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  display: inline-block;
-  margin: 5px;
-
-  cursor: pointer;
-  border: 2px solid #333;
-  object-fit: scale-down;
-}
-
-.carousel-smaller > img.active {
+.carousel-smaller > .thumbnail.active {
   border-color: #333;
   opacity: 0.6;
 }

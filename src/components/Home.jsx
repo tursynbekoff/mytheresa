@@ -1,5 +1,4 @@
-import { Component } from "react";
-import React from "react";
+import React, { Component } from "react";
 import Menu from "./Menu.jsx";
 
 class Home extends Component {

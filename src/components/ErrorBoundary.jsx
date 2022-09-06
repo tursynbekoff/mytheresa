@@ -1,5 +1,5 @@
 // mostly code from reactjs.org/docs/error-boundaries.html
-import { Component } from "react";
+import React, { Component } from "react";
 import { Link, Navigate } from "react-router-dom";
 
 class ErrorBoundary extends Component {

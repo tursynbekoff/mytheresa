@@ -14,9 +14,7 @@ const App = () => {
   return (
     <StrictMode>
       <BrowserRouter>
-        <nav>
           <Navbar />
-        </nav>
         <Routes>
           <Route path="/laptops" exact element={<Laptops />}/>
           <Route path="/laptop" element={<Laptop />}/>

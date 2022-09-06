@@ -20,7 +20,6 @@ const Cart = () => {
     let cartCopy = [...cart];
     let newVal = () => {
       const indexOfItemToRemove = cartCopy.findIndex((cartItem) => {
-        console.log(cartItem, item.id);
         return cartItem === item.id
       });
   

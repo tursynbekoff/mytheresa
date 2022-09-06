@@ -66,6 +66,7 @@ const Phone = () => {
               addItem(element.id)
             }}>
               add to basket
+              <img src="https://res.cloudinary.com/tursynbekoff/image/upload/v1662489793/phone-cart.svg"/>
             </button>
           </article>
     

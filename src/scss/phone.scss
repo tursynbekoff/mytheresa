@@ -1,67 +1,84 @@
 .phone {
-    margin-top: 100px;
-    font-family:  sans-serif;
+  margin-top: 100px;
+  font-family:  sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .carousel > img {
+    max-width: 75%;
+    max-height: 400px;
+  }
+
+  .carousel-smaller > img {
+    min-width: 80px;
+    min-height: 80px;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 5px;
   
+    cursor: pointer;
+    border: 2px solid #333;
+    object-fit: contain;
+  }
+
+  .carousel-smaller {
+    margin-top: 20px;
+    display: flex;
+    width: 300px;
+    height: 100px;
+    img {
+      height: 80px;
+      width: 80px;
+      object-fit: cover;
+    }
+    
+  }
+
+  .el {
+    min-width: 300px;
+    max-width: 400px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    padding: 10px;
+    justify-content: start;
     align-items: center;
-  
-    .carousel > img {
-      max-width: 75%;
-      max-height: 400px;
-    }
-  
-    .carousel-smaller > img {
-      min-width: 80px;
-      min-height: 80px;
-      border-radius: 50%;
-      display: inline-block;
-      margin: 5px;
-    
-      cursor: pointer;
-      border: 2px solid #333;
-      object-fit: contain;
-    }
-  
-    .carousel-smaller {
-      display: flex;
-      width: 300px;
-      height: 100px;
-      img {
-        height: 80px;
-        width: 80px;
-        object-fit: cover;
-      }
-      
-    }
-  
-    .el {
-      min-width: 300px;
-      max-width: 400px;
-      display: flex;
-      flex-direction: column;
-      padding: 10px;
-      justify-content: start;
-      align-items: center;
-      gap: 10px;
-      border-bottom: 1px solid gray;
-      text-decoration: none;
-    }
-  
-    .title {
-      font-size: 14px;
-    }
-    
-    .link {
-      text-align: center  ;
-      font-family: 'Montserrat';
-      font-weight: 500;
-    }
-  
-    .price {
-      color: tomato;
-    }
-      
+    gap: 10px;
+    border-bottom: 1px solid gray;
+    text-decoration: none;
   }
+
+  .title {
+    font-size: 14px;
+  }
+  
+  .link {
+    text-align: center  ;
+    font-family: 'Montserrat';
+    font-weight: 500;
+  }
+
+  .price {
+    color: tomato;
+  }
+
+  button {
+    border : 1px;
+    border-radius: 3px;
+    min-width: 150px;
+    display: flex;
+    padding: 6px 20px;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      width: 17px;
+      height: 17px
+    }
+    &:hover {
+      filter: brightness(90%)
+    }
+  }
+}
     

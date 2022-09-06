@@ -32,7 +32,6 @@
   
   .right {
     transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
   }
 }
 
@@ -58,9 +57,11 @@
     border: 2px solid #333;
     object-fit: scale-down;
   }
+
+  .thumbnail.active {
+    border-color: #333;
+    opacity: 0.6;
+  }
 }
 
-.carousel-smaller > .thumbnail.active {
-  border-color: #333;
-  opacity: 0.6;
-}
+

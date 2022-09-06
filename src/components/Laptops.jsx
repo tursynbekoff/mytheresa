@@ -38,7 +38,7 @@ const Laptops = () => {
       <div className="laptops__list list">
       
         {Object.keys(data).map((item, index) => (
-            <Link to={`/laptop?id=${item}`} key={`index-${index}`} className="list__el el">
+          <Link to={`/laptop?id=${item}`} key={`index-${index}`} className="list__el el">
             <img
               data-testid={`thumbnail${index}`}
               key={data[item].image[0]}

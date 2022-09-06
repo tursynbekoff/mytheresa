@@ -1,12 +1,10 @@
 .keyboard {
   margin-top: 100px;
   font-family: 'OpenSans';
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-family: ' OpenSans';
 
   .carousel > img {
     max-width: 75%;
@@ -35,7 +33,6 @@
       width: 80px;
       object-fit: cover;
     }
-    
   }
 
   .el {

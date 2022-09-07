@@ -1,10 +1,11 @@
-import React, { useEffect, useState, } from "react";
+import React, { useEffect, useState, useContext} from "react";
 import { useSearchParams } from "react-router-dom";
 import Carousel from "./Carousel.jsx";
-
+import Context from "./Context.jsx";
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
 const Phone = () => {
+  const message = useContext(Context);
   const [phone, setPhone] = useState([]);
   const [cart, setCart] = useState([]);
   const [searchParams] = useSearchParams();
@@ -16,6 +17,10 @@ const Phone = () => {
       setCart(localCart)
     };
   }, []);
+
+  useEffect(() => {
+    setCart(message);
+  }, [message]);
 
   async function requestPhone() {
     const res = await fetch(

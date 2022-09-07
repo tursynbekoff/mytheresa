@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect  } from "react";
 import Modal from "./modal.jsx";
 
-const Cart = () => {
+const Cart = ({ cartMessage }) => {
   const [modal, setModal] = useState(false);
   const [cart, setCart] = useState([]);
   const [allProd, setProd] = useState([]);
@@ -12,6 +12,7 @@ const Cart = () => {
     if (localCart) {
       setCart(localCart)
     };
+    cartMessage(cart)
   }, [modal]);
 
   let localCart = localStorage.getItem("cart");

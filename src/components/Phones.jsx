@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import ErrorBoundary from "./ErrorBoundary.jsx";
+import Context from "./Context.jsx";
 
 const Phones = () => {
+  const message = useContext(Context);
   const [cart, setCart] = useState([]);
   const [phones, setPhone]= useState([]);
 
@@ -13,6 +15,10 @@ const Phones = () => {
       setCart(localCart)
     };
   }, []);
+
+  useEffect(() => {
+    setCart(message);
+  }, [message]);
 
   let localCart = localStorage.getItem("cart");
 

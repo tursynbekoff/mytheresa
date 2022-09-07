@@ -15,7 +15,7 @@ const Laptops = () => {
   }, []);
 
   let localCart = localStorage.getItem("cart");
-  setCart(localCart)
+
   const addItem = (item) => {
     let cartCopy = [...cart, item]
     setCart(cartCopy);
@@ -32,8 +32,6 @@ const Laptops = () => {
   }
 
   const data = laptops;
-
-  console.log(cart);
 
   return (
     <div className="laptops">

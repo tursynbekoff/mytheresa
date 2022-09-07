@@ -1,10 +1,12 @@
-import React, { useEffect, useState, } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useSearchParams } from "react-router-dom";
 import Carousel from "./Carousel.jsx";
+import Context from "./Context.jsx";
 
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
 const Laptop = () => {
+  const message = useContext(Context);
   const [cart, setCart] = useState([]);
   const [laptop, setLaptop] = useState([]);
   const [searchParams] = useSearchParams();
@@ -16,6 +18,10 @@ const Laptop = () => {
       setCart(localCart)
     };
   }, []);
+
+  useEffect(() => {
+    setCart(message);
+  }, [message]);
 
   let localCart = localStorage.getItem("cart");
 
@@ -62,7 +68,6 @@ const Laptop = () => {
             <button onClick={(evt) => {
               evt.preventDefault()
               addItem(element.id)
-              forceUpdate()
             }}>
               add to basket
             </button>

@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
+import Context from "./Context.jsx";
 
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
 const Keyboards = () => {
+  const message = useContext(Context);
   const [cart, setCart] = useState([]);
   const [keyboards, setKeyboards] = useState([]);
 
@@ -14,6 +16,10 @@ const Keyboards = () => {
       setCart(localCart)
     };
   }, []);
+
+  useEffect(() => {
+    setCart(message);
+  }, [message]);
 
   let localCart = localStorage.getItem("cart");
 

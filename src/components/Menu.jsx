@@ -24,7 +24,7 @@ class Menu extends Component {
       <div className="carousel">
         <div className="card">
           <picture>
-            <source srcset={data[active].image.replace(".jpg", ".webp")} type="image/webp"></source>
+            <source srcSet={data[active].image.replace(".jpg", ".webp")} type="image/webp"></source>
             <img data-testid="hero" className="hero" src={data[active].image} alt={data[active].link} />
           </picture>
           <Link className="link" to={`/${data[active].link}`} >
@@ -35,11 +35,10 @@ class Menu extends Component {
         
           {Object.keys(data).map((item, index) => (
             // eslint-disable-next-line
-            <picture>
-              <source srcset={data[item].image.replace("upload", "upload/w_200").replace(".jpg", ".webp")} type="image/webp"></source>
+            <picture key={data[item].image}>
+              <source srcSet={data[item].image.replace("upload", "upload/w_200").replace(".jpg", ".webp")} type="image/webp"></source>
               <img
                 data-testid={`thumbnail${index}`}
-                key={data[item].image}
                 src={data[item].image.replace("upload", "upload/w_200")}
                 className={`thumbnail ${index === active ? "active" : ""}`}
                 alt={data[item].link}

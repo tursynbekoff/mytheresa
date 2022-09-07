@@ -1,5 +1,4 @@
-import React from "react";
-import { StrictMode } from "react";
+import React, { StrictMode } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import Navbar from "./components/Nav.jsx";
 import Home from "./components/Home.jsx";

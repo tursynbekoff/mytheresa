@@ -37,7 +37,6 @@ const Laptops = () => {
     setLaptop(json.laptops);
   }
 
-  console.log("cart local", cart);
   const data = laptops;
 
   return (

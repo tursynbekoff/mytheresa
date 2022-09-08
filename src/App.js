@@ -14,17 +14,15 @@ const App = () => {
 
   const [message, setMessage] = useState([]);
 
-  const chooseMessage = (message) => {
+  const cartMessage = (message) => {
     setMessage(message);
   };
-
-  console.log("App message: ", message);
 
   return (
     <StrictMode>
       <Context.Provider value={message}>
         <BrowserRouter>
-            <Navbar cartMessage={chooseMessage}/>
+            <Navbar cartMessage={cartMessage}/>
           <Routes>
             <Route path="/laptops" exact element={<Laptops />}/>
             <Route path="/laptop" element={<Laptop />}/>

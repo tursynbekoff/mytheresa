@@ -64,7 +64,7 @@ const Cart = ({ cartMessage }) => {
   const listItemsInCart = () => allProd.map((item) => (
       
     (amountOfItems(item.id) > 0) && (
-      <div>
+      <div key={`cart-${item.id}`}>
         <span>({amountOfItems(item.id)} x {item.price} Euro ) {`${item.name}`}</span>
         <button className="remove" type="submit" onClick={() =>{ removeFromItem(item)}}>Remove item</button>
       </div>

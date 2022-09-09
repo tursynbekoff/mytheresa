@@ -13,4 +13,6 @@ npm install
 npm run dev
 
 
-<img width="769" alt="" src="300">
+
+
+<img width="300" alt="" src="https://res.cloudinary.com/tursynbekoff/image/upload/v1662690295/app.jpg">

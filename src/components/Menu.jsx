@@ -23,16 +23,17 @@ class Menu extends Component {
     return (
       <div className="carousel">
         <div className="card">
-          <picture>
-            <source srcSet={data[active].image.replace(".jpg", ".webp")} type="image/webp"></source>
-            <img data-testid="hero" className="hero" src={data[active].image} alt={data[active].link} />
-          </picture>
+          <div className="carousel__hero-wrapper">
+            <picture>
+              <source srcSet={data[active].image.replace(".jpg", ".webp")} type="image/webp"></source>
+              <img data-testid="hero" className="hero" src={data[active].image} alt={data[active].link} />
+            </picture>
+          </div>
           <Link className="link" to={`/${data[active].link}`} >
             {data[active].id} {" "} <i className="arrow right"></i>
           </Link>
         </div>
         <div className="carousel-smaller">
-        
           {Object.keys(data).map((item, index) => (
             // eslint-disable-next-line
             <picture key={data[item].image}>
@@ -48,6 +49,9 @@ class Menu extends Component {
             </picture>
           ))}
         </div>
+        <p>
+          select category
+        </p>
       </div>
     );
 

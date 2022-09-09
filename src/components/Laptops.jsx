@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext  } from "react";
 import { useParams, Link } from "react-router-dom";
 import ErrorBoundary from "./ErrorBoundary.jsx";
 import Context from "./Context.jsx";
+import Img from "./Img.jsx"; 
 
 const Laptops = () => {
   const message = useContext(Context);
@@ -45,10 +46,9 @@ const Laptops = () => {
         
           {Object.keys(data).map((item, index) => (
             <Link to={`/laptop?id=${item}`} key={`index-${index}`} className="list__el el">
-              <img
-                data-testid={`thumbnail${index}`}
-                key={data[item].image[0]}
+              <Img 
                 src={data[item].image[0]}
+                alt={data[item].name}
               />
               <article>
                 <h2 className="el__title title">

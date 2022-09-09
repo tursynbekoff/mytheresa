@@ -6,36 +6,6 @@
   justify-content: center;
   align-items: center;
 
-  .carousel > img {
-    max-width: 75%;
-    max-height: 400px;
-  }
-
-  .carousel-smaller > img {
-    min-width: 80px;
-    min-height: 80px;
-    border-radius: 50%;
-    display: inline-block;
-    margin: 5px;
-  
-    cursor: pointer;
-    border: 2px solid #333;
-    object-fit: contain;
-  }
-
-  .carousel-smaller {
-    margin-top: 20px;
-    display: flex;
-    width: 300px;
-    height: 100px;
-    img {
-      height: 80px;
-      width: 80px;
-      object-fit: cover;
-    }
-    
-  }
-
   .el {
     min-width: 300px;
     max-width: 400px;

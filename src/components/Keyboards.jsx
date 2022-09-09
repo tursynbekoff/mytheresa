@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
 import Context from "./Context.jsx";
-
+import Img from "./Img.jsx";
 import ErrorBoundary from "./ErrorBoundary.jsx";
 
 const Keyboards = () => {
@@ -47,9 +47,8 @@ const Keyboards = () => {
       
         {Object.keys(data).map((item, index) => (
           <Link to={`/keyboard?id=${index}`} key={`index-${index}`} className="list__el el">
-            <img
-              data-testid={`thumbnail${index}`}
-              key={data[item].image[0]}
+            <Img
+              alt={data[item].name}
               src={data[item].image[0]}
             />
             <article>
